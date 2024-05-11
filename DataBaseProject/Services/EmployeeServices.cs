@@ -20,6 +20,11 @@ namespace DataBaseProject.Services
             _dBcontext = dbcontext;
         }
 
+
+        /// <summary>
+        /// To get all employee Data
+        /// </summary>
+        /// <returns></returns>
         public async Task<List<Employee>> GetAllEmployeeData()
         {
             try
@@ -38,6 +43,11 @@ namespace DataBaseProject.Services
             }
         }
 
+        /// <summary>
+        /// To get employee data for a particular ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<Employee> GetEmployeeById(int id)
         {
             try
@@ -56,7 +66,13 @@ namespace DataBaseProject.Services
             }
         }
 
-        public async Task<Employee> AddUpdateEmployee(Employee employee)
+
+        /// <summary>
+        /// To add new employee
+        /// </summary>
+        /// <param name="employee"></param>
+        /// <returns></returns>
+        public async Task<Employee> AddEmployee(Employee employee)
         {
             try
             {
@@ -76,6 +92,38 @@ namespace DataBaseProject.Services
             }
         }
 
+        /// <summary>
+        /// To delete employee data for a particular ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+
+        public async Task<bool?> DeleteEmployee(int id)
+        {
+            try
+            {
+                // Check if the employee exists in the database
+                var employeeExist = await _dBcontext.Employee.FirstOrDefaultAsync(x => x.EmployeeId == id);
+
+                // If employee does not exist, return false
+                if (employeeExist == null)
+                    return false;
+
+                // Remove the employee from the database
+                _dBcontext.Employee.Remove(employeeExist);
+
+                // Save changes to the database
+                await _dBcontext.SaveChangesAsync();
+
+                // Return true to indicate successful deletion
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Log or handle the exception appropriately
+                throw ex;
+            }
+        }
 
 
     }

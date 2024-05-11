@@ -17,7 +17,10 @@ namespace DataBaseProject.Services
         {
             _dBcontext = dbcontext;
         }
-
+        /// <summary>
+        /// Get list of location
+        /// </summary>
+        /// <returns></returns>
         public async Task<List<Location>> GetAllLocation()
         {
             try
@@ -34,6 +37,11 @@ namespace DataBaseProject.Services
             }
         }
 
+        /// <summary>
+        /// Get location by ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<Location> GetLocationById(int id)
         {
             try
@@ -50,7 +58,11 @@ namespace DataBaseProject.Services
             }
         }
 
-
+        /// <summary>
+        /// Add new Location 
+        /// </summary>
+        /// <param name="location"></param>
+        /// <returns></returns>
         public async Task<Location> CreateLocation(Location location)
         {
             try

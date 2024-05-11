@@ -43,7 +43,11 @@ namespace Job_API.Controllers
         }
 
 
-     
+     /// <summary>
+     /// Get Department by ID
+     /// </summary>
+     /// <param name="id"></param>
+     /// <returns></returns>
         [HttpPut("GetDepartmentById")]
         public async Task<IActionResult> GetDepartmentById(int id)
         {
@@ -60,6 +64,12 @@ namespace Job_API.Controllers
             }
         }
 
+
+        /// <summary>
+        /// Create New dept
+        /// </summary>
+        /// <param name="department"></param>
+        /// <returns></returns>
         [HttpPost("CreateDepartment")]
         public async Task<IActionResult> CreateDepartment(Department department)
         {

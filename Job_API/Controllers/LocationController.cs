@@ -19,7 +19,7 @@ namespace Job_API.Controllers
 
 
         /// <summary>
-        /// Get All departments
+        /// Get All Location
         /// </summary>
         /// <returns></returns>
 
@@ -39,7 +39,11 @@ namespace Job_API.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Get Location by ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPut("GetLocationById")]
         public async Task<IActionResult> GetLocationById(int id)
         {
@@ -56,6 +60,12 @@ namespace Job_API.Controllers
             }
         }
 
+
+        /// <summary>
+        /// Add new location
+        /// </summary>
+        /// <param name="location"></param>
+        /// <returns></returns>
         [HttpPut("CreateLocation")]
         public async Task<IActionResult> CreateLocation(Location location)
         {

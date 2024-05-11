@@ -18,6 +18,10 @@ namespace DataBaseProject.Services
             _dBcontext = dbcontext;
         }
 
+        /// <summary>
+        /// Get list of dept
+        /// </summary>
+        /// <returns></returns>
         public async Task<List<Department>> GetAllDepartment()
         {
             try
@@ -34,6 +38,11 @@ namespace DataBaseProject.Services
             }
         }
 
+        /// <summary>
+        /// Get dept by ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<Department> GetDepartmentById(int id)
         {
             try
@@ -50,7 +59,11 @@ namespace DataBaseProject.Services
             }
         }
 
-
+        /// <summary>
+        /// Create new dept
+        /// </summary>
+        /// <param name="department"></param>
+        /// <returns></returns>
         public async Task<Department> CreateDepartment(Department department)
         {
             try
@@ -66,7 +79,7 @@ namespace DataBaseProject.Services
             catch (Exception ex)
             {
                 // Log or handle the exception appropriately
-                throw ex;
+                throw ex ;
             }
         }
 

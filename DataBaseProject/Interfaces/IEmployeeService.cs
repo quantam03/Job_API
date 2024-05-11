@@ -13,6 +13,8 @@ namespace DataBaseProject.Interfaces
 
         Task<Employee> GetEmployeeById(int id);
 
-        Task<Employee> AddUpdateEmployee(Employee employee);
+        Task<Employee> AddEmployee(Employee employee);
+
+        Task<bool?> DeleteEmployee(int id);
     }
 }
